@@ -52,15 +52,15 @@
         <button type="button" onclick="adicionarTopico()">Adicionar Tópico</button>
         <form action="http://127.0.0.1:5000" id="formularioTopico">
             <div id="formularioAvaliacaoProjeto">
-                <div id="topico1">
+                <div id="topico">
                     <div class="nomeTopico">
-                        <label for="Nome do tópico">Nome do tópico 1:</label>
-                        <input type="text" name="nomeTopico1" class="nomeTopico1">
+                        <label for="Nome do tópico">Nome do tópico:</label>
+                        <input type="text" name="nomeTopico" class="nomeTopico">
                     </div>
-                    <div id="criterio1">
+                    <div id="criterio">
                         <label for="nomeCriterio">Nome do criterio:</label>
-                        <input type="text" name="nomeCriterio1.1" id="nomeCriterio1.1">
-                        <button type="button" onclick="adicionarCriterio(1)">+</button>
+                        <input type="text" name="nomeCriterio" id="nomeCriterio">
+                        <button type="button" onclick="adicionarCriterio(this)">+</button>
                     </div>
                 </div>
             </div>
@@ -82,66 +82,92 @@
             crossorigin="anonymous"></script>
         <script>
 
-            let controleTopico = 1;
-            let controleCriterio;
+			const form = document.forms['formularioTopico'];
+			form.addEventListener('submit', handle_submit);
+
+			function handle_submit(e){
+				e.preventDefault();
+
+				let array_to_send = [];
+
+                const topicos = document.getElementsByTagName("div");
+				for(let i=0;i<topicos.length;i++)
+					if(topicos[i].id === 'topico'){
+						const topic_name = topicos[i].children[0].children[1].value;
+						//console.log(topic_name);
+						array_to_send.push(topic_name);
+						const criterios = topicos[i].children;
+						let array_criterios = [];
+						for(let j=0;j<criterios.length;j++)
+							if(criterios[j].id === 'criterio'){
+								console.log(criterios[j].children[1].value);
+								const criterio = criterios[j].children[1].value;
+								array_criterios.push(criterio);
+							}
+						array_to_send.push(array_criterios);
+				}
+				console.log(array_to_send);
+			}
+
             function adicionarTopico() {
-                controleCriterio = controleTopico + 0.1;
-                controleTopico++;
-                controleCriterio += 0.1;
                 const tag = document.getElementById('formularioAvaliacaoProjeto');
+				console.log(tag);
 				let html = 
-				`<div id="topico${controleTopico}"> 
+				`<div id="topico"> 
 					<div class="nomeTopico"> 
 						<label for="Nome do tópico">
-							Nome do tópico ${controleTopico}:
+							Nome do tópico:
 						</label> 
-						<input type="text" name="nomeTopico${controleTopico}" class="nomeTopico${controleTopico}"/> 
-						<button type="button" onclick="removerTopico(${controleTopico})">
+						<input type="text" name="nomeTopico" class="nomeTopico"/> 
+						<button type="button" onclick="removerTopico(this)">
 							Remover tópico
 						</button> 
 					</div> 
-					<div id="criterio${controleTopico}">  
+					<div id="criterio">  
 						<label for="nomeCriterio">
 							Nome do criterio:
 						</label>
-							<input type="text" name="nomeCriterio" id="nomeCriterio${controleCriterio}"/> 
-							<button type="button" onclick="adicionarCriterio(${controleTopico})"> 
-								+ 
-							</button>  
+						<input type="text" name="nomeCriterio" id="nomeCriterio"/> 
+						<button type="button" onclick="adicionarCriterio(this)"> 
+							+ 
+						</button>  
 					</div> 
 				</div>`;
-                tag.insertAdjacentHTML('beforeend', html);
+                const new_topic = document.createElement("topico");
+				new_topic.innerHTML = html;
+				tag.appendChild(new_topic);
             }
 
-            function removerTopico(idcampo) {
-                controleTopico--;
-                const tag = document.getElementById('topico' + idcampo);
-                tag.remove();
+            function removerTopico(elem) {
+				console.log(elem);
+				console.log(elem.parentNode.parentNode);
+				const to_delete = elem.parentNode.parentNode;
+				to_delete.parentNode.removeChild(to_delete);
             }
 
-            function adicionarCriterio(id) {
-                console.log(id)
-                controleCriterio = id;
-                controleCriterio += 0.1
-                console.log(controleCriterio)
-                const tag = document.getElementById('criterio' + id + '');
+            function adicionarCriterio(elem) {
+				console.log(elem);
+				console.log(elem.parentNode.parentNode);
+				const add_to = elem.parentNode.parentNode;
                 let html = 
-					`<div id="criterio${controleCriterio}">  
-						<label for="nomeCriterio">
+					`<label for="nomeCriterio">
 							Nome do criterio:
 						</label> 
-						<input type="text" name="nomeCriterio${controleCriterio}" id="nomeCriterio"/> 
-						<button type="button" onclick="removerCriterio(${controleCriterio})">
+						<input type="text" name="nomeCriterio" id="nomeCriterio"/> 
+						<button type="button" onclick="removerCriterio(this)">
 							- 
-						</button>  
-					</div>`;
-                tag.insertAdjacentHTML('beforeend', html);
+						</button>`;
+				const new_el = document.createElement("div");
+				new_el.setAttribute('id', 'criterio');
+				new_el.innerHTML = html;
+                add_to.appendChild(new_el);
             }
 
-            function removerCriterio(id) {
-                controleCriterio -= 0.1
-                const tag = document.getElementById('criterio' + id);
-                tag.remove();
+            function removerCriterio(elem) {
+				console.log(elem);
+				console.log(elem.parentNode);
+				const to_delete = elem.parentNode;
+				to_delete.parentNode.removeChild(to_delete);
             }
 
         </script>
