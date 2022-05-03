@@ -50,15 +50,15 @@
     <div id="corpo">
         <h1 style="text-align: center;">Cadastrar Formulário</h1>
         <button type="button" onclick="adicionarTopico()">Adicionar Tópico</button>
-        <form action="" id="formularioTopico">
+        <form action="http://127.0.0.1:5000" id="formularioTopico">
             <div id="formularioAvaliacaoProjeto">
                 <div id="topico1">
                     <div class="nomeTopico">
-                        <label for="Nome do tópico">Nome do tópico:</label>
+                        <label for="Nome do tópico">Nome do tópico 1:</label>
                         <input type="text" name="nomeTopico1" class="nomeTopico1">
                     </div>
                     <div id="criterio1">
-                        <label for="nomeCriterio">Nome do criterio x:</label>
+                        <label for="nomeCriterio">Nome do criterio:</label>
                         <input type="text" name="nomeCriterio1.1" id="nomeCriterio1.1">
                         <button type="button" onclick="adicionarCriterio(1)">+</button>
                     </div>
@@ -89,7 +89,27 @@
                 controleTopico++;
                 controleCriterio += 0.1;
                 const tag = document.getElementById('formularioAvaliacaoProjeto');
-                let html = '<div id="topico' + controleTopico + '"> <div class="nomeTopico"> <label for="Nome do tópico">Nome do tópico ' + controleTopico + ':</label> <input type="text" name="nomeTopico' + controleTopico + '" class="nomeTopico' + controleTopico + '"> <button type="button" onclick="removerTopico(' + controleTopico + ')">Remover tópico</button> </div> <div id="criterio' + controleTopico + '">  <label for="nomeCriterio">Nome do criterio x:</label> <input type="text" name="nomeCriterio' + controleCriterio + '" id="nomeCriterio' + controleCriterio + '"> <button type="button" onclick="adicionarCriterio(' + controleTopico + ')"> + </button>  </div> </div>';
+				let html = 
+				`<div id="topico${controleTopico}"> 
+					<div class="nomeTopico"> 
+						<label for="Nome do tópico">
+							Nome do tópico ${controleTopico}:
+						</label> 
+						<input type="text" name="nomeTopico${controleTopico}" class="nomeTopico${controleTopico}"/> 
+						<button type="button" onclick="removerTopico(${controleTopico})">
+							Remover tópico
+						</button> 
+					</div> 
+					<div id="criterio${controleTopico}">  
+						<label for="nomeCriterio">
+							Nome do criterio:
+						</label>
+							<input type="text" name="nomeCriterio" id="nomeCriterio${controleCriterio}"/> 
+							<button type="button" onclick="adicionarCriterio(${controleTopico})"> 
+								+ 
+							</button>  
+					</div> 
+				</div>`;
                 tag.insertAdjacentHTML('beforeend', html);
             }
 
@@ -105,7 +125,16 @@
                 controleCriterio += 0.1
                 console.log(controleCriterio)
                 const tag = document.getElementById('criterio' + id + '');
-                let html = '<div id="criterio' + controleCriterio + '">  <label for="nomeCriterio">Nome do criterio ' + controleCriterio + ':</label> <input type="text" name="nomeCriterio' + controleCriterio + '" id="nomeCriterio' + controleCriterio + '"> <button type="button" onclick="removerCriterio(' + controleCriterio + ')"> - </button>  </div>';
+                let html = 
+					`<div id="criterio${controleCriterio}">  
+						<label for="nomeCriterio">
+							Nome do criterio:
+						</label> 
+						<input type="text" name="nomeCriterio${controleCriterio}" id="nomeCriterio"/> 
+						<button type="button" onclick="removerCriterio(${controleCriterio})">
+							- 
+						</button>  
+					</div>`;
                 tag.insertAdjacentHTML('beforeend', html);
             }
 
