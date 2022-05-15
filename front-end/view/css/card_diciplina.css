@@ -2,10 +2,14 @@
 
 .Disciplinas {
   width: 50vw;
-  margin: 10;
+
   display: flex;
   flex-wrap: wrap;
   max-width: 900px;
+}
+
+.card{
+  margin: 10px;
 }
 
 .imagemDisciplina{
