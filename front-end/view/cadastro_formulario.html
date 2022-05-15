@@ -8,10 +8,10 @@
     <link rel="shortcut icon" href="/front-end/Icons/LogoColoridoSemFundo.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="Css/Cabecalho.css">
-    <link rel="stylesheet" href="Css/EstruturaPrincipal.css">
-    <link rel="stylesheet" href="Css/Footer.css">
-    <link rel="stylesheet" href="Css/CadastroFormularioAvaliacao.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/estrutura_principal.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cadastro_formulario_avaliacao.css">
     <title>Cadastro Formulario</title>
 </head>
 
@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <!--Tirei essa classe: bg-light para aplicar a cor ||| Troquei navbar-light por navbar-dark para os textos ficarem brancos -->
             <div class="container-fluid ">
-                <a class="navbar-brand" href="PaginaPrincipal.html"><img src="/front-end/Image/UfsLogo.png"
+                <a class="navbar-brand" href="pagina_principal.html"><img src="/front-end/Image/UfsLogo.png"
                         class="imagem" alt="LogoUfs"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,17 +30,14 @@
                     <!--Para alinhar na direita o nav-->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="PaginaPrincipal.html">Página
+                            <a class="nav-link active" aria-current="page" href="pagina_principal.html">Página
                                 Principal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="CadastroDisciplina.html">Cadastrar Disciplina</a>
+                            <a class="nav-link active" href="perfil.html">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="Perfil.html">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="Ajuda.html">Ajuda</a>
+                            <a class="nav-link active" href="ajuda.html">Ajuda</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +46,7 @@
     </header>
     <div id="corpo">
         <h1 style="text-align: center;">Cadastrar Formulário</h1>
-        <button type="button" onclick="adicionarTopico()">Adicionar Tópico</button>
+        <button type="button" onclick="adicionar_topico()">Adicionar Tópico</button>
         <form action="" id="formularioTopico">
             <div id="formularioAvaliacaoProjeto">
                 <div id="topico">
@@ -60,7 +57,7 @@
                     <div id="criterio">
                         <label for="nomeCriterio">Nome do criterio:</label>
                         <input type="text" name="nomeCriterio" id="nomeCriterio">
-                        <button type="button" onclick="adicionarCriterio(this)">+</button>
+                        <button type="button" onclick="adicionar_criterio(this)">+</button>
                     </div>
                 </div>
             </div>
@@ -76,7 +73,7 @@
             crossorigin="anonymous"></script>
 
 		<script>
-			function adicionarTopico() {
+			function adicionar_topico() {
 				const tag = document.getElementById('formularioAvaliacaoProjeto');
 				console.log(tag);
 				let html =
@@ -86,7 +83,7 @@
 							Nome do tópico:
 						</label> 
 						<input type="text" name="nomeTopico" class="nomeTopico"/> 
-						<button type="button" onclick="removerTopico(this)">
+						<button type="button" onclick="remover_topico(this)">
 							Remover tópico
 						</button> 
 					</div> 
@@ -95,7 +92,7 @@
 							Nome do criterio:
 						</label>
 						<input type="text" name="nomeCriterio" id="nomeCriterio"/> 
-						<button type="button" onclick="adicionarCriterio(this)"> 
+						<button type="button" onclick="adicionar_criterio(this)"> 
 							+ 
 						</button>  
 					</div> 
@@ -105,14 +102,14 @@
 				tag.appendChild(new_topic);
 			}
 
-			function removerTopico(elem) {
+			function remover_topico(elem) {
 				console.log(elem);
 				console.log(elem.parentNode.parentNode);
 				const to_delete = elem.parentNode.parentNode;
 				to_delete.parentNode.removeChild(to_delete);
 			}
 
-			function adicionarCriterio(elem) {
+			function adicionar_criterio(elem) {
 				console.log(elem);
 				console.log(elem.parentNode.parentNode);
 				const add_to = elem.parentNode.parentNode;
@@ -121,7 +118,7 @@
 							Nome do criterio:
 						</label> 
 						<input type="text" name="nomeCriterio" id="nomeCriterio"/> 
-						<button type="button" onclick="removerCriterio(this)">
+						<button type="button" onclick="remover_criterio(this)">
 							- 
 						</button>`;
 				const new_el = document.createElement("div");
@@ -130,7 +127,7 @@
 				add_to.appendChild(new_el);
 			}
 
-			function removerCriterio(elem) {
+			function remover_criterio(elem) {
 				console.log(elem);
 				console.log(elem.parentNode);
 				const to_delete = elem.parentNode;

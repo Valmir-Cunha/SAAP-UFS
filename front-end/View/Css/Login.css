@@ -10,9 +10,8 @@ body{
 
 div#corpo{
     position: absolute; 
-	left: 450px; /* posiciona a 90px para a esquerda */ 
-	top: 120px; /* posiciona a 70px para baixo */
-    max-width: 1000px;
+	left: 40vw;
+    top: 10vw;
     background-color: #4169E1;  
     color: #ffffff;
     border-radius: 8px;
@@ -20,7 +19,6 @@ div#corpo{
 }
 
 form {
-    /* Apenas para centralizar o form na página */
     margin: 0 auto;
     width: 400px;
 }

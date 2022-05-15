@@ -2,7 +2,6 @@
 
 .Disciplinas {
   width: 50vw;
-  /*"vw" = view width , quanto do tamanho da tela*/
   margin: 10;
   display: flex;
   flex-wrap: wrap;

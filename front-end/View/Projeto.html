@@ -10,29 +10,27 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <!--Google icons-->
-    <link rel="stylesheet" href="Css/Cabecalho.css">
-    <link rel="stylesheet" href="Css/EstruturaPrincipal.css">
-    <link rel="stylesheet" href="/front-end/View/Css/CardGrupo.css">
-    <link rel="stylesheet" href="Css/Footer.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/estrutura_principal.css">
+    <link rel="stylesheet" href="css/card_grupo.css">
+    <link rel="stylesheet" href="css/footer.css">
     <title>Projeto</title>
 </head>
 
 <body>
     <header id="cabecalho" aria-orientation="horizontal">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <!--Tirei essa classe: bg-light para aplicar a cor ||| Troquei navbar-light por navbar-dark para os textos ficarem brancos -->
             <div class="container-fluid ">
-                <a class="navbar-brand" href="PaginaPrincipal.html"><img src="/front-end/Image/UfsLogo.png" class="imagem"
+                <a class="navbar-brand" href="pagina_principal.html"><img src="/front-end/Image/UfsLogo.png" class="imagem"
                         alt="LogoUfs"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <!--Para alinhar na direita o nav-->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="PaginaPrincipal.html">Página
+                            <a class="nav-link active" aria-current="page" href="pagina_principal.html">Página
                                 Principal</a>
                         </li>
                         <li class="nav-item dropstart">
@@ -41,8 +39,8 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<!-- <li><a class="dropdown-item" href="#">Editar Projeto</a></li> -->
-                                <li><a class="dropdown-item" href="CadastroGrupo.html">Criar grupo</a></li>
-                                <li><a class="dropdown-item" href="CadastroFormulario.html">Criar formulário de avaliação</a></li>
+                                <li><a class="dropdown-item" href="cadastro_grupo.html">Criar grupo</a></li>
+                                <li><a class="dropdown-item" href="cadastro_formulario.html">Criar formulário de avaliação</a></li>
 								<!-- <li><a class="dropdown-item" href="#">Editar formulário</a></li> -->
                                 <li><a class="dropdown-item" href="#exampleModal" data-bs-toggle="modal">Convidar
                                         avaliadores</a></li>
@@ -56,10 +54,10 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="Perfil.html">Perfil</a>
+                            <a class="nav-link active" href="perfil.html">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="Ajuda.html">Ajuda</a>
+                            <a class="nav-link active" href="ajuda.html">Ajuda</a>
                         </li>
                     </ul>
                 </div>
@@ -110,28 +108,7 @@
 						</tr>
 					</thead>
 					<tbody id="tabela_integrantes_avaliadores">
-						<!--
-						<tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td style="cursor: pointer;"><span class="material-icons-outlined btnRemover"
-									onclick="apagarAluno(this.parentNode.parentNode.rowIndex)">close</span></td>
-						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td style="cursor: pointer;"><span class="material-icons-outlined btnRemover"
-									onclick="apagarAluno(this.parentNode.parentNode.rowIndex)">close</span></td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td colspan="2">Larry the Bird</td>
-							<td style="cursor: pointer;"><span class="material-icons-outlined btnRemover"
-									onclick="apagarAluno(this.parentNode.parentNode.rowIndex)">close</span></td>
-						</tr>
-						-->
+						
 					</tbody>
 				</table>
             </div>
@@ -163,28 +140,6 @@
                             </tr>
                         </thead>
                         <tbody id="tabela_avaliadores">
-							<!--
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td style="cursor: pointer;"><span class="material-icons-outlined btnRemover"
-                                        onclick="apagarAluno(this.parentNode.parentNode.rowIndex)">close</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td style="cursor: pointer;"><span class="material-icons-outlined btnRemover"
-                                        onclick="apagarAluno(this.parentNode.parentNode.rowIndex)">close</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td style="cursor: pointer;"><span class="material-icons-outlined btnRemover"
-                                        onclick="apagarAluno(this.parentNode.parentNode.rowIndex)">close</span></td>
-                            </tr>
-							-->
                         </tbody>
                     </table>
                 </div>
@@ -199,29 +154,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <script>
-        function editarProjeto(){
 
-        }
-        function cadastrarGrupo(){
-
-        }
-        function editarAvaliadores(){
-
-        }
-        function iniciarPeriodoAvaliacao(){
-
-        }
-        function finalizarPeriodoAvaliacao(){
-
-        }
-        function convidarAvaliadores(){
-
-        }
-        function encerrarProjeto(){
-
-        }
-    </script>
 	<script type="module" src="scripts/projeto.js"></script>
 	<script type="module" src="scripts/avaliadores.js"></script>
 </body>

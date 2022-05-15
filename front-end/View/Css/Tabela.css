@@ -12,7 +12,6 @@ th {
     color: white;
 }
 
-/*Muda a cor da linhas impares para cinza*/
 table tr:nth-child(odd) {
     background-color: #ddd;
 }
